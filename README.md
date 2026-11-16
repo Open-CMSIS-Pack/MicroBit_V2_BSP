@@ -20,7 +20,7 @@ install one with `cpackget add https://github.com/Open-CMSIS-Pack/MicroBit_V2_BS
 | `Documents/`                     | Pack overview and the board schematic (CC BY-SA 4.0)
 | `.knowledge/`                    | Knowledge units for the CMSIS Developer Assistant knowledge base
 | `gen_pack.sh`                    | Pack generation script ([gen-pack](https://github.com/Open-CMSIS-Pack/gen-pack) library)
-| `vcpkg-configuration.json`       | Tool environment (CMSIS-Toolbox, GCC, CMake, Ninja) for the Arm Environment Manager in VS Code
+
 
 ## Generating the pack
 
