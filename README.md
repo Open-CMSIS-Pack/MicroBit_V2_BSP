@@ -49,7 +49,7 @@ Both workflows install `cmsis-knowledge` from the public repository
 commit); `gen_pack.sh` runs `cmsis-knowledge build . --strict --fetch` before packaging.
 
 To release: set the version and date in the `<releases>` section of the pdsc and in the `<url>`, commit, then
-`git tag v<version> && git push --tags`.
+`git tag v<version> && git push --tags`. The pack workflow attaches the pack and its pdsc to the GitHub release.
 
 ## Using the pack
 

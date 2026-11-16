@@ -3,7 +3,7 @@
   <name>MicroBit_V2_BSP</name>
   <vendor>MicroBit</vendor>
   <description overview="Documents/OVERVIEW.md">BBC micro:bit V2 Board Support Pack (Nordic nRF52833)</description>
-  <url>https://github.com/Open-CMSIS-Pack/MicroBit_V2_BSP/releases/download/v0.1.0/</url>
+  <url>https://github.com/Open-CMSIS-Pack/MicroBit_V2_BSP/releases/download/v0.2.0/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/MicroBit_V2_BSP.git</repository>
   <license>LICENSE</license>
   <licenseSets>
@@ -13,6 +13,10 @@
   </licenseSets>
 
   <releases>
+    <release version="0.2.0" date="2026-11-16">
+      - The pack description (pdsc) is attached to the GitHub release next to the pack
+      - CI installs cmsis-knowledge from the public cmsis-developer-assistant-tools repository, no token needed
+    </release>
     <release version="0.1.0" date="2026-10-13">
       Initial release.
       - Knowledge units for the CMSIS Developer Assistant in .knowledge
