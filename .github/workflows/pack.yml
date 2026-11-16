@@ -1,0 +1,58 @@
+name: Build pack
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  pack:
+    name: Generate pack
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # cmsis-knowledge from https://github.com/MatthiasHertelArm/cmsis-developer-assistant-tools (0.1.0).
+      # The repository is private: the secret CDA_TOOLS_TOKEN (a fine-grained token with read access to its
+      # contents) authenticates the install; without the secret the public URL is used.
+      - name: Install the knowledge builder
+        env:
+          CDA_TOOLS_TOKEN: ${{ secrets.CDA_TOOLS_TOKEN }}
+        run: >-
+          python3 -m pip install
+          "git+https://${CDA_TOOLS_TOKEN:+x-access-token:${CDA_TOOLS_TOKEN}@}github.com/MatthiasHertelArm/cmsis-developer-assistant-tools.git@e1150bd7164d523e5549913caddd68959afd3be7"
+
+      - name: Generate pack
+        uses: Open-CMSIS-Pack/gen-pack-action@main
+        with:
+          doxygen-version: none
+          packchk-version: 1.4.1
+          gen-pack-script: ./gen_pack.sh
+          gen-pack-output: ./output
+          gh-pages-branch: ''
+          gh-pages-deploy: ''
+          pack-artifact-format: pack
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: output/*.pack
+          generate_release_notes: true
