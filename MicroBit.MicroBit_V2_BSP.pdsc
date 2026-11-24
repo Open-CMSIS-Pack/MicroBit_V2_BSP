@@ -3,7 +3,7 @@
   <name>MicroBit_V2_BSP</name>
   <vendor>MicroBit</vendor>
   <description overview="Documents/OVERVIEW.md">BBC micro:bit V2 Board Support Pack (Nordic nRF52833)</description>
-  <url>https://github.com/Open-CMSIS-Pack/MicroBit_V2_BSP/releases/download/v0.2.0/</url>
+  <url>https://github.com/Open-CMSIS-Pack/MicroBit_V2_BSP/releases/download/v0.2.1/</url>
   <repository type="git">https://github.com/Open-CMSIS-Pack/MicroBit_V2_BSP.git</repository>
   <license>LICENSE</license>
   <licenseSets>
@@ -13,6 +13,9 @@
   </licenseSets>
 
   <releases>
+    <release version="0.2.1" date="2026-11-24">
+      - Added board image for the BBC micro:bit V2
+    </release>
     <release version="0.2.0" date="2026-11-16">
       - The pack description (pdsc) is attached to the GitHub release next to the pack
       - CI installs cmsis-knowledge from the public cmsis-developer-assistant-tools repository, no token needed
@@ -208,6 +211,7 @@
            salesContact="https://microbit.org/contact/"
            orderForm="https://microbit.org/buy/">
       <description>BBC micro:bit V2 with Nordic nRF52833 (Cortex-M4F, 512 KB Flash, 128 KB RAM)</description>
+      <image large="Documents/A300_MICROBIT_V2_02.jpg"/>
       <book category="overview"  name="https://tech.microbit.org/hardware/"                        title="micro:bit V2 Hardware Overview"/>
       <book category="schematic" name="https://github.com/microbit-foundation/microbit-v2-hardware" title="micro:bit V2 Schematic and Hardware Design Files"/>
       <book category="manual"    name="https://tech.microbit.org/hardware/edgeconnector/"           title="Edge Connector and Pin Map"/>
